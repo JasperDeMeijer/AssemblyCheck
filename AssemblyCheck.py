@@ -4,7 +4,7 @@ import numpy
 
 def main():
     scafLength = scaffoldLength()
-    nFifty(scafLength)
+    nFiftyScore = nFifty(scafLength)
 
 
 def scaffoldLength():
@@ -13,10 +13,31 @@ def scaffoldLength():
 
         scafLength.append(len(record.seq))
 
-    print(scafLength)
+
     return scafLength
 
 def nFifty(scafLength):
-    scafLength.sort()
+    scafLength.sort(reverse=True)
+    sumScaf = 0
+    for x in scafLength:
+        sumScaf += x
+
+    halfSumScaf = sumScaf/2
+
+    nSum = 0
+    nFiftyCheck = False
+
+    for x in scafLength:
+        nSum += x
+        if nSum >= halfSumScaf:
+            nFifty = x
+            break
+
+    return nFifty
+
+
+
+
+
 
 main()
