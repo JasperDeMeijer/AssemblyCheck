@@ -6,7 +6,7 @@ def main():
     records = scaffoldLength()
     nFiftyScore, nFiftyCount = nFifty(records)
     print(nFiftyScore, nFiftyCount)
-    gapStats(records)
+    gapStats(records, nFiftyScore, nFiftyCount)
 
 
 def scaffoldLength():
@@ -42,7 +42,7 @@ def nFifty(records):
 
     return nFifty, nFiftyCount
 
-def gapStats(records):
+def gapStats(records, nFiftyScore, nFiftyCount):
     gapCountList = []
     averageGapSizeList = []
     scaffoldGapCountList = []
@@ -82,6 +82,12 @@ def gapStats(records):
     print(averageGapSize)
     print(scaffoldGapCountList)
     print(len(scaffoldGapCountList))
+    assemblyFile = open("AssemblyStats", "w")
+    assemblyFile.write(str("average gapsize: " + int(averageGapSize)))
+    assemblyFile.write(str("amount of gaps: " + gapCount))
+    assemblyFile.write(str("N50 begeeft zich op scaffold 5: "+nFiftyCount))
+    assemblyFile.write(str("De N50 scaffold is: "+nFiftyScore+"NT's"))
+
 
 
 
