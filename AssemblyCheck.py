@@ -6,6 +6,7 @@ def main():
     records = scaffoldLength()
     nFiftyScore, nFiftyCount = nFifty(records)
     print(nFiftyScore, nFiftyCount)
+    gapStats(records)
 
 
 def scaffoldLength():
@@ -41,24 +42,43 @@ def nFifty(records):
 
     return nFifty, nFiftyCount
 
-# def gapStats(records):
-#
-#     for y in records:
-#         nCheck = False
-#         gapCount = 0
-#         gapSize = 0
-#         for x in y.seq:
-#             if x == "n":
-#                 gapSize += 1
-#                 while(nCheck == False):
-#                     gapCount += 1
-#                     nCheck = True
-#             else:
-#                 nCheck = False
-#
-#
-#         gapCountList = []
-#         averageGapSizeList = []
+def gapStats(records):
+    gapCountList = []
+    averageGapSizeList = []
+
+    sCheck = True
+    nCheck = False
+    gapCount = 0
+    gapSize = 0
+    for y in records:
+
+
+        for x in y.seq:
+
+            if x == "n":
+                sCheck = False
+                gapSize = gapSize + 1
+                while(nCheck == False):
+                    scaffoldGapCount
+                    gapCount = gapCount + 1
+                    nCheck = True
+            else:
+                while(sCheck == False):
+                    averageGapSizeList.append(gapSize)
+                    sCheck = True
+                gapSize = 0
+
+                nCheck = False
+
+    print(averageGapSizeList)
+    print(len(averageGapSizeList))
+    print(gapCount)
+    averageGapSize = sum(averageGapSizeList)/len(averageGapSizeList)
+    print(averageGapSize)
+
+
+
+
 
 
 
